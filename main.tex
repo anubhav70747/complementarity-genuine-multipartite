@@ -1,0 +1,355 @@
+\documentclass[%
+ reprint,
+%superscriptaddress,
+%groupedaddress,
+%unsortedaddress,
+%runinaddress,
+%frontmatterverbose, 
+%preprint,
+%showpacs,preprintnumbers,
+%nofootinbib,
+%nobibnotes,
+%bibnotes,
+ amsmath,amssymb,
+ aps,
+%pra,
+%prb,
+%rmp,
+%prstab,
+%prstper,
+%floatfix,
+]{revtex4-1}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{appendix}
+\usepackage{enumitem}
+\usepackage{bm}
+\usepackage{amsmath}%
+\usepackage{MnSymbol}%
+\usepackage{wasysym}%
+\usepackage{verbatim}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{revsymb}
+\usepackage{amsbsy}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage{natbib}
+\usepackage{hyperref}
+\theoremstyle{plain}
+\usepackage[caption=false]{subfig}
+\captionsetup[subfigure]{labelformat=brace}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{example}{Example}
+\newtheorem{mydef}{Definition}
+
+\newtheorem{mydef1}{Theorem}
+
+\newtheorem{mydef2}{Proof}
+
+\newtheorem{mydef3}{Protocol}
+
+\newtheorem{property}{Property}
+
+\newtheorem{condition}{Condition}
+
+
+\begin{document}
+
+\theoremstyle{definition}
+
+
+\title{ Complementarity of genuine multipartite (Bell) non-locality}
+
+
+\author{Sasha Sami}
+\affiliation{Center for Security, Theory and Algorithmic Research, International Institute of Information Technology, Gachibowli, Hyderabad, India.}
+\author{Anubhav Chaturvedi}
+\email{anubhav.chaturvedi@research.iiit.ac.in}
+\affiliation{Center for Security, Theory and Algorithmic Research, International Institute of Information Technology, Gachibowli, Hyderabad, India.}
+\affiliation{Institute of  Theoretical Physics and Astrophysics, National Quantum
+Information Centre, Faculty of Mathematics, Physics and Informatics, University of Gda\'nsk, Wita Stwosza 57, 80-308 Gda\'nsk, Poland}
+\author{Indranil Chakrabarty}
+\affiliation{Center for Security, Theory and Algorithmic Research, International Institute of Information Technology, Gachibowli, Hyderabad, India.}
+\begin{abstract}
+We introduce a new feature of no-signaling (Bell) non-local theories, namely, when a system of multiple parties manifests genuine non-local correlation, then there cannot be arbitrarily high non-local correlation among any subset of the parties. We call this feature, \textit{complementarity of genuine multipartite non-locality}. We use Svetlichny's criterion for genuine multipartite non-locality and non-local games to derive the complementarity relations under no-signaling constraints. We find that the complementarity relations are tightened for the much stricter quantum constraints. We compare this notion with the well-known notion of \textit{monogamy of non-locality}. As a consequence, we obtain tighter non-trivial monogamy relations that take into account genuine multipartite non-locality. Furthermore, we provide numerical evidence showcasing this feature using a bipartite measure and several other well-known tripartite measures of non-locality. 
+\end{abstract}
+
+\maketitle 
+
+\section{Introduction}
+In 1964 John Stewart Bell established the fact that no physical theory of local hidden variables can reproduce all of the predictions of quantum mechanics \cite{bell1964einstein,bell1966problem,brunner2014bell}. An inequality was designed to illustrate the same. This inequality, now commonly referred to as the Bell's inequality, was based on the assumptions of local realism \cite{clauser1969proposed,freedman1972experimental}; i.e. the inequality is satisfied by all possible statistics admitted by local-real (local hidden variable) models. The phenomenon of the violation of this inequality is commonly referred to as (Bell) non-locality. The term `non-locality' is a misnomer, in this work we use the term to imply the departure of the predictions of the theory under consideration from the predictions of any local-real (local hidden variable) model.   
+In quantum theory, certain states (for instance, the singlet) violate the Bell's inequality, deeming the theory to be non-local. However, the notion of non-locality is \textit{not} restricted to the quantum theory; i.e., in general the statistics predicted by any theory which violates the Bell's inequality cannot be explained by a local hidden variable model and the theory can be regarded as being non-local. 
+The amount of violation of the Bell-inequality serves as a metric for non-locality; i.e., it quantifies just how far the predictions of a particular operational theory are from that of the local hidden variable models. For instance, it is known that the no-signaling condition allows more non-locality than what is admitted by the quantum theory \cite{barrett2005popescu,chakrabarty2014ctc}.
+The amount of non-locality is directly associated with the advantage in many information processing protocols and tasks, when using non-local resources as compared to when using classical (local-real) resources \cite{horodecki1996teleportation,adhikari2008quantum,chakrabarty2011deletion,chaturvedi2015measurement}. \\
+The notion of non-locality as presented in the Bell's theorem was restricted to bipartite systems. The extension of the notion of non-locality to multipartite systems presents itself with delicate intricacies \cite{brunner2014bell}. Let us consider a tripartite system. A well known Bell-type inequality, now commonly known as the Mermin's inequality \cite{mermin1980quantum,mermin1990extreme}, is based on the assumption that all three systems are locally correlated; i.e., the inequality is satisfied by all possible statistics of the tripartite system that can be explained by local-real models. A violation of this inequality simply implies non-locality. A bipartite non-local system locally correlated with the third system violates this inequality. The observation of this fact preceded the search for Bell-type inequalities that would distill genuine tripartite non-locality; i.e., non-locality vested in all three systems combined. Svetlichny gave a systematic way of characterizing genuine tripartite non-locality along-with an inequality, now commonly referred to as the Svetlichny's inequality \cite{svetlichny1987distinguishing}. This stronger inequality is based on the assumption of bi-locality which allows for non-locality in any bipartite subsystem locally correlated with the third system \cite{svetlichny1987distinguishing}. The violation of the Svetlichny's inequality is a sufficient condition for witnessing genuine tripartite non-locality \cite{bancal2011device}. The inequality itself is readily generalized to the multipartite scenario, wherein the Svetlichny's set of inequalities form the sufficient conditions for witnessing genuine multipartite non-locality.\\
+The notion of complementarity of physical phenomenon forms an integral part of the structure of quantum mechanics. Historically, soon after the conception of the uncertainty principle \cite{heisenberg1927anschaulichen}, Neils Bohr brought up the notion of complementarity; i.e., physical systems described by the quantum theory have complementary properties which \textit{cannot} all be observed or measured simultaneously, examples include, position and momentum, energy and duration, spin on different axes, and more \cite{sazim2015complementarity}. Recently, an interesting instance was brought up in the form of complementarity between tripartite quantum correlation and bipartite Bell-inequality violation \cite{pandya2016complementarity}.\\ 
+In this work, we bring forth yet another instance of complementarity, but this time around without invoking the particulars of the quantum theory. We show that in any no-signaling non-local theory, witnessing genuine $n$-party non-locality in a $n$-party system, restricts the amount of genuine $k$-party non-locality attainable by \textit{any} of its $k$-party subsystems. We use the Svetlichny's criterion for genuine multipartite non-locality and the framework of non-local games to analytically proof our main result. We further find that the relations we derive, not only hold, but are tightened under the more restrictive quantum constraints. We also investigate the relationship between the prevalent notion of monogamy of non-locality and the notion of complementarity of genuine multipartite non-locality as presented in this work. As a consequence of this investigation, we find that in any no-signaling non-local theory the monogamy relations are tightened with increase in genuine multipartite non-locality.
+Furthermore, we provide numerical evidence in support of our main result, using other non-local games and inequalities in the simpler, tripartite vs. bipartite scenario. \\
+
+\section{Preliminary concepts}
+In this section, we briefly discuss the notion of non-local games, their relation to Bell-type inequalities, followed by Svetlichny's criterion of genuine multipartite non-locality. A reader familiar with these notions may consider continuing directly from the next section. 
+\subsection{Non-local games}
+Non-local games are convenient constructs developed primarily for showcasing the power of non-locality as a resource \cite{ambainis2013worst,brunner2014bell}.
+The non-local games were designed such that their associated winning probability severed as a metric to quantify the distance between the predictions of local-real models and the quantum theory. Now they are used to compare the predictions of other models and theories as well, for instance, the bi-local model, almost quantum models and the no-signaling framework. A non-local game is a cooperative task involving two or more spatially separated parties. These games are generally played against a referee. The parties are not allowed to communicate with each other during the task. However, they are allowed to share resources (typically, any amount of classical randomness and correlations allowed by the model under consideration) before the task begins. \\ 
+In this work we consider non-local games involving $n$ parties $A_1,A_2,\ldots A_n$. For each round the referee assigns the $i$th party an input bit $x_i$ and obtains an output bit $u_i$ from the $i$th party. The players win the round if their outputs satisfy a particular condition, which may depend on the assignment of the inputs in that round. The measure of success in this task is simply the probability with which the players are able to satisfy the condition.
+For the rest of this paper, the winning condition is represented by a Boolean equation, say $E$, defined over the input and output bits of the parties involved in the non-local game. Suppose that, the parties share a correlation represented by a conditional probability distribution $p(u_1,u_2,\ldots u_n|x_1,x_2,\ldots x_n)$. Then the success probability of the non-local game is simply the probability with which the parties win or satisfy the equation $E$, which is given by,  
+\begin{equation}
+p(E)=\frac{1}{2^n}\sum_{E}p(u_1,u_2,\ldots u_n|x_1,x_2,\ldots x_n),
+\end{equation}
+where $\sum_{E}$ represents a sum over all inputs and outputs which satisfy $E$.\\
+Each Bell-type inequality comprises of a Bell-type expression and limit on this expression. This expression is usually a linear combination of expectations of products of outputs (in $\{+1,-1\}$) of all the parties for particular input (measurement) settings. Each such Bell-type expression is inter-convertible with a non-local game, upon relabeling of outputs. To illustrate this, we shall now consider the case of two parties. 
+Here we have the well known CHSH expression,
+\begin{multline}
+\mathcal{I}_{CHSH} = \langle x_1=0,x_2=0 \rangle + \langle x_1=1,x_2=0 \rangle \\
+ + \langle x_1=0,x_2=1 \rangle - \langle x_1=1,x_2=1 \rangle.
+\end{multline}
+where $\langle x_1=i,x_2=j \rangle$ is simply average over outcomes $\tilde{u_1},\tilde{u_2} \in \{-1,+1\}$ of parties $A_1, A_2$ when $x_1=i,x_2=j$, i.e., 
+\begin{multline}
+\langle x_1=i,x_2=j \rangle= \\\sum_{k,l \in \{-1,+1\}}(k.l) p(\tilde{u}_1=k,\tilde{u}_2=l|x_1=i,x_2=j).
+\end{multline}
+While the Bell expressions use a `physicist' notation; i.e, the outcomes take values in $\{-1,+1\}$, non-local games utilize a `computer scientist' notation; i.e., the outcomes take values in $\{0,1\}$ \cite{pironio2011extremal}. We can rewrite $\mathcal{I}_{CHSH}$ as,
+\begin{multline}\label{refmenow}
+\sum_{k,l,i,j \in \{0,1\}}(-1)^{k\oplus l \oplus  ij }p(u_1=k,u_2=l|x_1=i,x_2=j).
+\end{multline}
+Now let us consider a non-local game described by the equation $S_2\equiv u_1 \oplus u_2 =x_1x_2$. It straightforward to see that the winning probability of this non-local game is linearly related to the value of the CHSH expression; i.e, 
+\begin{equation}
+p(S_2)=\sum_{S_2}p(u_1,u_2|x_1,x_2)=\frac{1}{2}\big(1+\frac{\mathcal{I}_{CHSH}}{4}\big) \;,
+\end{equation}
+which allows one to write the CHSH inequality in terms of the success probability of the non-local game represented by $S_2$; i.e.,
+\begin{equation}\label{CHSH}
+\max_{LV}\{|\mathcal{I}_{CHSH}|\} = 2 \equiv \\ \max_{LV}\{p(S_2)\}= \frac{3}{4},
+\end{equation}
+where $\max_{LV}$ implies maximization over all possible statistics admitted by local hidden variable (local real) models. 
+\subsection{Svetlichny's criterion} 
+Svetlichny's criterion for genuine mulitpartite non-locality is applicable to a system of arbitrary number of spatially separated parties. But for the sake of a brief overview, we restrict to the case of three spatially separated parties $A_1,A_2,A_3$. Each party is assigned an input bit $x_i$ and obtains and output bit $u_i$ with $i \in \{1,2,3\}$. The correlation shared by the three parties is represented by the joint probability distribution $p(u_1,u_2,u_3|x_1,x_2,x_3)$.
+This correlation would adhere to a local-real model if it can be decomposed as,
+%\begin{widetext}
+\begin{eqnarray} \label{ML}
+&&p(u_1,u_2,u_3|x_1,x_2,x_3) \nonumber \\&&= \sum_{\lambda} q(\lambda) p_{\lambda}(u_1|x_1)p_{\lambda}(u_2|x_2)p_{\lambda}(u_3|x_3),
+\end{eqnarray}
+ where $\lambda$ is the hidden variable and $q(\lambda)$ is the probability distribution governing $\lambda$, such that
+$\sum_\lambda q(\lambda) = 1$. The correlations which \textit{cannot} be written in this way are termed as being non-local. But in the multipartite scenario, there are many distinct forms of non-locality, some more refined than others. For instance consider the case when $A_3$'s system is uncorrelated with that of $A_1$ and $A_2$,
+\begin{eqnarray}
+&&p(u_1,u_2,u_3|x_1,x_2,x_3) \nonumber \\ &&= p(u_1,u_2|x_1,x_2)p(u_3|x_3). 
+\end{eqnarray} 
+If the correlation shared by $A_1,A_2$, $p(u_1,u_2|x_1,x_2)$, violates the CHSH inequality, this deems the whole of $p(u_1,u_2,u_3|x_1,x_2,x_3)$ to be non-local. However, in this case \textit{no} non-locality, at all, is exhibited across the bi-partition, $A_1A_2,A_3$ (no correlation between $A_1,A_3$ or $A_2,A_3$). Svetlichny argued that genuine multipartite non-local correlation must have non-locality across all possible bi-partitions. Consider the following decomposition of $p(u_1,u_2,u_3|x_1,x_2,x_3)$,
+%\begin{widetext}
+\begin{eqnarray}\label{SL}
+&&p(u_1,u_2,u_3|x_1,x_2,x_3){}\nonumber\\&& =  \sum_{\lambda_1} q_1(\lambda_1)p_{\lambda_1}(u_1,u_2|x_1,x_2)p_{\lambda_1}(u_3|x_3) {}\nonumber\\&&
+           +  \sum_{\lambda_2} q_2({\lambda_2})p_{\lambda_2}(u_2,u_3|x_2,x_3)p_{\lambda_2}(u_1|x_1) {}\nonumber\\&& 
+           +  \sum_{\lambda_3} q_3({\lambda_3})p_{\lambda_3}(u_1,u_3|x_1,x_3)p_{\lambda_3}(u_2|x_2) \; ,
+\end{eqnarray}
+%\end{widetext}
+where $\lambda_1,{\lambda_2},{\lambda_3}$ are hidden variables shared by the pairs $(A_1,A_2)$,$(A_2,A_3)$ and $(A_1,A_3)$ respectively. Here, $q_1(\lambda_1),q_2({\lambda_2}),q_3({\lambda_3})$ are probability distributions over respective hidden variables, such that, $\sum_{\lambda_1} q_1(\lambda_1)+\sum_{\lambda_2} q_2({\lambda_2})+\sum_{\lambda_3} q_3({\lambda_3})=1$. \\
+The right hand side of (\ref{SL}), consists of three terms, where the first allows correlation with non-locality between $A_1,A_2$, second between $A_2,A_3$ and third between $A_1,A_3$. The correlations,  $p(u_1,u_2,u_3|x_1,x_2,x_3)$ which \textit{can} be written in the form given by (\ref{SL}), are termed as being bi-local (BL). \textit{If and only if} $p(u_1,u_2,u_3|x_1,x_2,x_3)$ \textit{cannot} be written in the form given by (\ref{SL}), then we say that $A_1,A_2,A_3$ share a genuine tripartite non-local correlation or a three-way non-local correlation. It is to be noted that Svetlichny's criterion is only sufficient and that alternative criterion for genuine tripartite non-locality have also been studied \cite{bancal2011definition,gallego2012operational}. \\
+\section{Svetlichny's framework}
+In this section, we introduce the general form of Svetlichny's non-local games for $n$-party systems. Followed by, presentation of some essential notations, which in-turn are used to highlight certain characteristic features of Svetlichny's family of non-local games. The notations and properties are further exploited to present and derive our main result in the subsequent section.  
+\subsection{Svetlichny's non-local game for $n$-party system} 
+Let us consider $n$ spatially separated parties $A_1,A_2 \ldots A_n$, with input bits $x_1,x_2 \ldots x_n$ and output bits $u_1,u_2 \ldots u_n$. Then the general Svetlichny's non-local game for a $n$-party system is represented by the Boolean equation $S_n$, with the following form, 
+\begin{equation}
+\label{svetlichny_recurssive}
+S_n \equiv  \bigoplus_{1\le i \le n} u_i \oplus c_0 = (\bigoplus_{1\le i<j \le n} x_i x_j) \oplus (\bigoplus_{1 \le i \le n}c_i x_i) \; ,
+\end{equation}
+where the bits $c_0,c_1,\ldots c_n$ decide the particular form of the $S_n$-game. One of the motivating factors for using Svetlichny's non-local games in this work is that, irrespective of the particular assignment of $c_k\in\{0,1\}$, the following holds for all $n\geq2$,
+\begin{eqnarray}
+&&\max_{BL}\{p(S_n)\}=\frac{3}{4},\nonumber \\
+&&\max_{Q}\{p(S_n)\}=\frac{2+\sqrt[]{2}}{4},\nonumber \\
+&&\max_{\mathcal{NS}}\{p(S_n)\}=1,
+\end{eqnarray}
+where $\max_{BL},\max_{Q},\max_{\mathcal{NS}}$ imply maximization over all possible correlations allowed by the bi-local models, the quantum theory and the no-signaling condition, respectively. The fact that the success probability of all $n$-party bi-local correlations in the $n$-party Svetlichny's non-local game is bounded by $\frac{3}{4}$, is referred to as the Svetlichny's inequality (the Svetlichny's inequalities also have an equivalent, rather prevalent representation with outputs in $\{+1,-1\}$)). Therefore, $p(S_n)>\frac{3}{4}$ implies genuine $n$-party non-locality.
+For the two party scenario, i.e., for $n=2$ the notion of bi-locality does not make any sense, instead here the maximization of $p(S_2)$ is over the local-real models but with the same upper bound (\ref{CHSH}). For a single party, $n=1$, the local-real models, the quantum theory and the no-signaling condition allow the same maximum winning probability $\max\{p(S_1)\}=1$. 
+
+\subsection{Observations and notations}
+\begin{itemize}
+\item Since there are ${n+1}$ Boolean coefficients in the expression (\ref{svetlichny_recurssive}), $c_0,c_1,\ldots c_n$, there are $2^{n+1}$ distinct $n$-party Svetlichny's games. We shall use the notation $S_n^i$ to denote a specific $S_n$ game with a specific assignment of $c_0,c_1,\ldots c_n$.
+\item We denote the game which differs from $S_n^i$ only in the value assigned to $c_0$, by ${S_n^i}'$.
+\item Observe that when one fixes the value of the input $x_n$ and the output $u_n$ for the $n$th party in the expression for $S_n$ given in (\ref{svetlichny_recurssive}), one obtains the expression for a particular $(n-1)$-party Svetlichny's non-local game $S_{n-1}$. We denote the particular non-local game thus obtained as $S_{n-1}^j\equiv S_n^i||(u_n=u_n',x_n=x_n')$. Where $S_n^i||(u_n=u_n',x_n=x_n'$ represents the $S_{n-1}$ game obtained from $S_n^i$ game upon fixing $(u_n=u_n',x_n=x_n')(u_n=u_n',x_n=x_n')$.
+\item One can similarly obtain a $S_{k}$ game for $k<n$ upon fixing the inputs and outputs of $n-k$ parties, $S_k^j\equiv S_n^i||(u_{k+1}=u_{k+1}',u_{k+2}=u_{k+2}',\ldots u_n=u_n',x_{k+1}=x_{k+1}',x_{k+2}=x_{k+2}',\ldots,x_n=x_n')$.
+\item Consider a Boolean function defined on inputs and output bits of $n-k$ parties,
+\begin{equation} \label{aux1}
+\mathcal{A}_{n-k}=(\bigoplus_{k<i\le n} u_i)\oplus (\bigoplus_{k<i\le n}c_ix_i), \; 
+\end{equation}
+and another Boolean function, defined only on the input bits of $n-k$ parties,
+\begin{equation}\label{aux2}
+\mathcal{B}_{n-k}=\bigoplus_{k<i \le n}x_i \; .
+\end{equation}
+We represent the $k$-party Svetlichny's non-local game $S_k^j$ obtained by fixing the values of $\mathcal{A}_{n-k}$ and $\mathcal{B}_{n-k}$ as, $S_k^j\equiv S_n^i||(A_n^k=a,B_n^k=b)$   
+\end{itemize}
+\subsection{Useful properties}
+\noindent Before we proceed to the main results we study some key features (properties) of the Svetlichny's non-local games which form the basis of our main results. It is interesting to note that these features are to be attributed to the structure of Svetlichny's non-local games and are independent of any particular theory.\\
+\begin{property}
+\label{trivial_complementary}
+Any two instances of the general $n$-party Svetlichny's non-local game (\ref{svetlichny_recurssive}), which differ only in the assignment of $c_0$ are \textit{trivially complementary} to each other; i.e., $S_n^i$ and ${S_n^i}'$ are trivially complementary to each other and the following relation holds between their success probabilities, 
+\begin{equation}
+p(S_n^i)+p({S_n^i}')=1.
+\end{equation}
+\end{property}
+This property is based on the simple fact that the winning conditions of the two games in consideration are mutually exclusive.
+\begin{property}
+\label{not_trivial_complementary}
+For different assignments of $c_i$ where $i\in\{1,2,\ldots n\}$, the general $n$-party Svetlichny's non-local game (\ref{svetlichny_recurssive}) reduces to distinct instances which are \textit{not} trivially complementary. Suppose $S_n^i$ and $S_n^j$ differ in the assignment for one or more $c_i$s, where $i \in \{1,2,\ldots n\}$, then $ S_n^j \not \equiv {S_n^i}'$. 
+\end{property}
+\begin{property}
+\label{trivially_complementary_recurrence}
+The $k$-party Svetlichny's game obtained from (\ref{svetlichny_recurssive}) by assigning specific values to $\mathcal{A}_{n-k}$ and $\mathcal{B}_{n-k}$, is \textit{trivially complementary} to the game obtained by flipping the value assigned to $\mathcal{A}_{n-k}$; i.e., $p({S_{n}^i||(\mathcal{A}_{n-k}=0,\mathcal{B}_{n-k}=b)})+p(S_{n}^i||(\mathcal{A}_{n-k}=1,\mathcal{B}_{n-k}^k=b))=1$.
+\end{property}
+Observe that the $S_{n-1}$ game obtained from (\ref{svetlichny_recurssive}) after fixing the input $x_n$ and output $u_n$ of $n$th party is \textit{trivially complementary} to the $S_{n-1}$ game obtained after flipping the value assigned to the output $u_n$ while keeping the input same. Now this holds for the $n-k$ party games as well, i.e., flipping the value assigned to \textit{any} of the outputs of the $n-k$ parties while keeping the inputs same, results in \textit{trivially complementary} $S_{n-k}$ games. Since function $\mathcal{A}_{n-k}$ is dependent on the outputs of the $n-k$ parties, this fact conveniently captured in the above property.
+\begin{property}
+\label{fixing_one_fixes_another}
+The $S_k$ games obtained by flipping the values of $\mathcal{B}_{n-k}$ are \textit{not} trivially complementary; i.e. $S_k^1\equiv S_n^i||(\mathcal{A}_{n-k}=b,\mathcal{B}_{n-k}=0)$ and $S_k^2\equiv S_n^i||(\mathcal{A}_{n-k}=b^{'},\mathcal{B}_{n-k}=1)$ are \textit{not} trivially complementary to each other; i.e., $S_k^1 \not \equiv {S_k^2}'$ . 
+\end{property}
+Observe that on flipping the value of the input $x_n$, the two distinct $S_{n-1}$ games, thus obtained from (\ref{svetlichny_recurssive}) are \textit{not} trivially complementary. Similarly, the above holds for the $S_k$ games obtained on flipping the value assigned to \textit{any} of the inputs of the $n-k$ parties. Interestingly, we find that there are only two distinct, \textit{not} trivially complimentary $S_k$ games possible, which basically \textit{only} depends on the particular assignment of $\mathcal{B}_{n-k}$, a function which only depends on the input bits of $n-k$ parties. However, the two games, $S_k^1$ and $S_k^2$, thus obtained, are related to each other see \textbf{Appendix B.}. 
+\section{Complementarity relations}
+In this section we showcase our main results. We consider $n$ spatially separated parties $A_1,A_2, \ldots A_n$, each with input bits $x_1,x_2, \ldots x_n$ and output bit $u_1,u_2, \ldots u_n$. They share a no-signaling correlation $p(u_1,u_2, \ldots u_n|x_1,x_2 \ldots x_n )$. Suppose that this correlation wins a particular Svetlichny's non-local game $S_n^i$ with a success probability $p(S_n^i)$. Then, we show that the success probability attainable by this correlation in any other $n$-party Svetlichny game $p(S_n^j)$ is upper-bounded. Furthermore, the upper-bound, $\max_{\mathcal{NS}}\{p(S_n^j)\}$ decreases with increase in $p(S_n^i)$.  
+\begin{theorem}
+\label{thm_1} \textit{$S_n^i$ vs. $S_n^j$}: For any $n$-party no-signaling correlation, there holds the following complementary relation between the attainable success probabilities of two distinct $n$ party Svetlichny's non-local games $S_n^i$ and $S_n^j$,
+\begin{eqnarray}
+\label{snsn}
+\max_{\mathcal{NS}}\{p(S^j_n)\}=
+      \frac{3}{2}-p({S_n^i}),
+\end{eqnarray} 
+where $S_n^j \not \equiv {S_n^i}'$ and $p(S_n^i)\ge \frac{1}{2}$.
+\end{theorem}
+
+\begin{figure}[hbtp] 
+\includegraphics[scale=0.6]{images/Sn_vs_Sn.pdf}
+\caption{ [color online] Plot of maximum achievable winning probability in a particular $S_n^j$ game, $\max_{\mathcal{NS}}\{p(S_n^j)\}$, against the observed winning probability in another $S_n^i$ game, $p(S_n^i)$  (when $S_n^i,S_n^j$ are \textit{not} trivially complementary). For maximization over no-signaling probability distributions, the solid blue line, and for quantum probabilities, the dashed orange curve.}
+\label{snvssn} 
+\end{figure}
+
+The relations presented in this Theorem are tight. The above relation is saturated by the convex combination of two distinct Svetlichny's boxes (a no-signaling correlation that wins the Svetlichny's non-local game with unit probability), specifically $S_n^j$-box and $S_n^i$-box [see FIG. \ref{snvssn} blue curve]. These boxes also form the extremal points of the $n$-party no-signaling polytope. When $p(S^j_n)=1$, it implies that the correlation is a $S_n^j$-box with $p(S_n^i)=\frac{1}{2}$. When $p(S^i_n)=1$, it implies the correlation is a $S_n^i$-box with $p(S_n^j)=\frac{1}{2}$. It is interesting to note that it is enough to consider $p(S_n^i)\ge \frac{1}{2}$ as $p(S_n^i)=1-p({S_n^i}')$; i.e., when $p(S_n^i) < \frac{1}{2}$, then $p({S_n^i}')\ge \frac{1}{2}$ and $\max_{\mathcal{NS}}\{p(S_n^j)\}=\frac{3}{2}-p({S_n^i}')$.
+For detailed proof of this Theorem see \textbf{Appendix C.}.
+To approximate $\max_{Q} \{p({S_n^j})\}$, we find $\max_{Q_{n-1}} \{p({S_n^j})\}$ given an observed value of $p(S_n^i)$, where $Q_{n-1}$ is an convex set of correlations which approximates the quantum set of correlations. The test of whether a correlation belongs to this set or not can be formulated as a semi-definite program (SDP). Such SDPs form an ordered family, commonly referred to as the Navascues-Pironio-Acin (NPA) hierarchy \cite{navascues2008convergent,wehner2006tsirelson,vandenberghe1996semidefinite,liang2007bounds,doherty2008quantum}. The limit of the sequence of the ever tightening convex sets $Q_1 \supset Q_2 \supset Q_3 \ldots \supset Q_{m}$ is $\lim_{ n \Rightarrow \infty}Q_m=Q$, therefore $\max_{Q} \{p({S_n^j})\} \le \max_{Q_{n-1}} \{p({S_n^j})\}$. To plot
+ $\max_{Q_{n-1}} \{p({S_n^j})\}$ against $p({S_n^i})$, we solve a SDP for $n\in \{2,3,4,5\}$ and obtain \textit{identical} curves [see FIG. \ref{snvssn} orange curve]. It is interesting to note that, $\max_{\mathcal{NS}}\{p(S_n^j)+p(S_n^i)\}=\max_{Q}\{p(S_n^j)+p(S_n^i)\}=\frac{3}{2}$, i.e., while the quantum curve always remains within the no-signaling curve they meet at a unique point where $p(S_n^j)=p(S_n^i)=\frac{3}{4}$ [this point is highlighted in FIG. \ref{snvssn}].\\
+The Theorem presented above is a stepping stone to our main result presented below. Again, $n$ spatially separated parties share a no-signaling correlation $p(u_1,u_2,\ldots u_n|x_1,x_2,\ldots x_n)$. Now if using this correlation the parties can win a $n$ party Svetlichny's non-local game with a success probability $p(S_n^i)>\frac{3}{4}$, then the attainable success probability in any $k$-party Svetlichny's non-local game $p(S_k^j)$ is upper bounded, where $k<n$. Moreover, the upper bound decreases with the increase in $p(S_n^i)$.
+\begin{theorem} $S_k$ vs. $S_n$:
+\label{thm_2} For any $n$-party no-signaling correlation, there holds the following complementarity relation between the attainable winning probability in any $k$-party Svetlichny's non-local game $S_k^j$, where $k<n$, and the observed winning probability of $n$ party Svetlichny's non-local game $S_n^i$, given by,
+\begin{eqnarray}
+\label{nvn}
+  \max_{\mathcal{NS}}\{p({S_{k}^j})\} =
+    \begin{cases}
+       \bigg( \frac{5-4p(S_{n}^i)}{2} \bigg),  \text{if}\ p(S_{n}^i) \geq \frac{3}{4} , \\
+      1, \;\;\;\;\;\;\;\;\;\; \text{if}\ \frac{1}{2}\leq  p(S_{n}^i) \leq \frac{3}{4},\\
+    \end{cases}{} 
+\end{eqnarray} 
+where $S_k^j \equiv S_n^i||(\mathcal{A}_{n-k}=a,\mathcal{B}_{n-k}=b)$ for some $a,b \in \{0,1\}$.
+\end{theorem}
+\begin{figure}[hbtp]
+\includegraphics[scale=0.6]{images/Sk_vs_Sn.pdf}
+\caption{[color online] Plot of maximum achievable winning probability in a particular $S_k^j$ game, $\max \{p(S_k^j)\}$,  against the observed winning probability in a $S_n^i$ game, $p(S_n^i)$ (when $S_k^j \equiv S_n^i|(\mathcal{A}_{n-k}=a,\mathcal{B}_{n-k}=b)$ for some $a,b \in \{0,1\}$). For maximization over no-signaling probability distributions, the blue curve, and for quantum probabilities, the orange curve.
+}
+\label{skvssn}
+\end{figure}
+The Theorem states that if one witnesses genuine $n$-party non-locality, i.e., $p(S_n) > \frac{3}{4}$, then the no-signaling constraints imply an upper bound on the amount of attainable genuine $k$-party non-locality $p(S_k)$ for any $k<n$.  
+The relation presented in \textbf{Theorem 2.} is tight when the $k$-party game $S_k^j$ whose winning probability we are maximizing is one of the four $S_k$-games obtained by fixing $\mathcal{A}_{n-k},\mathcal{B}_{n-k}$ from the $n$ party $S_n^i$-game. When $p(S_k^j)=1$ we have a $S_k^j$-box. If we have a completely random distribution for the remaining $n-k$ parties, i.e., $p(u_{k+1},u_{k+2}, \ldots u_n|x_{k+1},x_{k+2}, \ldots x_n)=\frac{1}{2^{n-k}}$, we have $p(S_n^i)=\frac{1}{2}$. However, only when the $n-k$ parties have a particular deterministic distribution along with a $S_k^j$-box, $p(S_n^i)=\frac{3}{4}$. For $p(S_n^i)\ge \frac{3}{4}$, the curve in the relation is simply the convex combination between $S_k^j$-box along-with the deterministic distribution for $n-k$ parties and the $S_n^i$-box [see FIG. \ref{skvssn} blue curve]. We use the set, $Q_{n-1}$ from NPA hierarchy, to approximate the quantum case for $S_k$ vs. $S_n$. We plot  $\max_{Q_{n-1}}p(S_k^j)$ against $p(S_n^i)$ for $n\in \{2,3,4,5\}$ and $k\in \{1,2, \ldots n-1\}$ and find identical curves [see FIG. \ref{skvssn} orange curve]. In the quantum scenario, we find that the complementarity relations are tightened. It is interesting to note that the quantum curve always lies within the no-signaling curve and never touches it. As noted above, in the no-signaling case $\max_{\mathcal{NS}}\{p(S_k^j)\}$ decreases for $p(S_n^i) > \frac{3}{4}$, on the other hand in the quantum case $\max_Q\{p(S_k^j)\}$ decreases for $p(S_n^i) \gtrsim 0.68$ [these points are highlighted in FIG. \ref{skvssn}].\\    
+The proof of the above Theorem relies on the fact that, upon fixing the values of  $n-k$ party Boolean variables, $\mathcal{A}_{n-k}$ and $\mathcal{B}_{n-k}$, a $S_n^i$ game yields four distinct $S_k$ games. Using \textbf{Property 3.} and \textbf{Property 4.} one may write the winning probability of a $S_n^i$ game as,
+\begin{eqnarray}
+\label{general_win_probability2}
+&&p({S_n^i}) ={}\nonumber\\&& \frac{1}{2} \bigg( p(\mathcal{A}_{n-k}=0|\mathcal{B}_{n-k}=0)p({S_k^1}|\mathcal{A}_{n-k}=0,\mathcal{B}_{n-k}=0){}\nonumber\\&&+p(\mathcal{A}_{n-k}=1|\mathcal{B}_{n-k}=0)p({S_k^1}'|\mathcal{A}_{n-k}=1|\mathcal{B}_{n-k}=0) \nonumber\\&&
++p(\mathcal{A}_{n-k}=0|\mathcal{B}_{n-k}=1)p({S_k^2}|\mathcal{A}_{n-k}=0,\mathcal{B}_{n-k}=1){}\nonumber\\&&+p(\mathcal{A}_{n-k}=1|\mathcal{B}_{n-k}=1)p({S_k^2}'|\mathcal{A}_{n-k}=1,\mathcal{B}_{n-k}=1) \bigg), \;{}\nonumber\\&& 
+\end{eqnarray}
+where the conditional probability distribution $p(\mathcal{A}_{n-k}|\mathcal{B}_{n-k})$ can be computed from the marginal probability distribution $p(u_{k+1},u_{k+2} \ldots u_n|x_{k+1},x_{k+2} \ldots x_n)$ of $n-k$ parities. Now, the above relation is obtained using the relations in \textbf{Theorem 1.}; i.e., by comparing $p(S_k^1|\mathcal{A}_{n-k}=0,\mathcal{B}_{n-k}=0)$, $p({S_k^1}|\mathcal{A}_{n-k}=1,\mathcal{B}_{n-k}=0)$, $p(S_k^2|\mathcal{A}_{n-k}=0,\mathcal{B}_{n-k}=1)$ and $p({S_k^2}'|\mathcal{A}_{n-k}=1,\mathcal{B}_{n-k}=1)$ with the winning probability of a particular $k$-party Svetlichny's non-local game, say $p(S_k^1)$, irrespective of the assignment of $\mathcal{A}_{n-k},\mathcal{B}_{n-k}$ [see FIG. \ref{prove_me}]. The actual proof of this theorem is rather arduous and can be found in \textbf{Appendix E.}.\\ 
+\begin{figure}[hbtp] 
+\includegraphics[scale=0.45]{images/ProofIdea.pdf}
+
+\caption{The proof sketch for \textbf{Theorem 2.}. It utilizes the \textbf{Property 3.}, \textbf{Property 4.} and the relation presented in \textbf{Theorem 1.}.
+\label{prove_me}
+}
+\end{figure}
+\section{Relation with Monogamy of non-locality}
+In this section, we highlight the key differences and the subtle relationship between monogamy of non-local correlations and complementarity of genuine multipartite non-locality. It has been observed by several authors \cite{toner2009monogamy,san2009entanglement,pawlowski2009monogamy,ramanathan2012generalized,bai2014general,osborne2006general,koashi2004monogamy,hiroshima2007monogamy}, that a system being (non-locally) correlated with another one, cannot have arbitrarily high non-local correlation with a third system: this has been dubbed as the `monogamous' nature of non-locality.
+For instance, non-local correlations between spatially separated systems that lead to the violation of the well-known CHSH inequality (\ref{CHSH}), exhibit this phenomenon. It was later shown that all no-signaling correlations violating any Bell-type inequality exhibit monogamy \cite{pawlowski2009monogamy}. This feature of non-local correlations, imposed by the no-signaling condition reflects the monogamy of entanglement under the much stricter quantum constraints. Furthermore, this feature is significant in various cryptographic scenarios, where two parties $A_1$ and $A_2$ can verify a sufficient amount of non-locality to guarantee that their systems are not correlated with any eavesdropper's system \cite{toner2009monogamy}. \\
+Consider the case of three spatially separated parties $A_1,A_2,A_3$, sharing a no-signaling correlation $p(u_1,u_2,u_3|x_1,x_2,x_3)$. 
+It was first shown by Toner \cite{toner2009monogamy}, that in a Bell experiment with three spatially separated parties $A_1,A_2,A_3$, when $A_1,A_2$ observe the violation of the CHSH inequality, then the no-signaling condition imposes that there can be \textit{no} violation of the CHSH inequality between $A_1,A_3$. This is conveniently captured by the following `monogamy' relation:
+\begin{eqnarray}
+\label{mono}
+\nonumber
+\max_{\mathcal{NS}}\{p_{A_1,A_2}(S_2)+p_{A_1,A_3}(S_2)\} && = 2\max_{LV}\{p(S_2)\} \\  && =\frac{3}{2},
+\end{eqnarray}
+where
+$p_{A_1,A_2}(S_2)=\sum_{u_3}\sum_{S_2}p(u_1,u_2,u_3|x_1,x_2,x_3)$ and $p_{A_1,A_3}(S_2)$ is similarly defined. This relation is saturated for no-signaling constraints for all possible values of $p_{A_1,A_2}(S_2),p_{A_1,A_3}(S_2)$ [see FIG. \ref{love} curve for $p(S_3)=0.75$ ]. Interestingly, the same relation holds for quantum case as well. However, for the quantum case it is saturated only for $p_{A_1,A_2}(S_2)=\frac{3}{4},p_{A_1,A_3}(S_2)=\frac{3}{4}$ [see FIG. \ref{love1} curve for $p(S_3)=0.675$] . \\
+The complementarity relations for this tripartite system are,
+\begin{eqnarray}
+\label{nvn31}
+  \max_{\mathcal{NS}}\{p_{A_1A_2}({S_{2}})\} =
+    \begin{cases}
+       \bigg( \frac{5-4p(S_{3})}{2} \bigg),  \text{if}\ p(S_{3}) \geq \frac{3}{4}, \\
+      1, \;\;\;\;\;\;\;\;\;\; \text{if}\ \frac{1}{2}\leq  p(S_{3}^i) \leq \frac{3}{4},  \\
+    \end{cases}{}
+\end{eqnarray} and exactly same for $\max_{\mathcal{NS}}\{p_{A_1A_3}({S_{2}})\}$.
+In general the monogamy relations \textit{do not} take into account the amount of genuine multipartite non-locality the system may have and are tight \textit{only} under the assumption that there isn't any as is the case with the relation in (\ref{mono}). For a multipartite system, the monogamy relations reveal that if a high degree of (genuine $n$-party) non-local correlation is observed in a system of $n$-parties then none of these $n$-parties can be highly correlated with any other external party. While on the other hand the complementarity relations presented in this work, on the other hand, deal with the distribution of genuine non-locality within a $n$-party system; i.e., they \textit{do not} take any external parties into consideration (see FIG. \ref{idea} for the visualization of the difference in the notions).
+
+\begin{figure*}
+\subfloat[Monogamy of non-locality.]{%
+  \includegraphics[scale=0.425]{images/Monogamy.pdf}%
+}\hspace{0.08\linewidth}
+\subfloat[Complementarity of genuine tripartite and bipartite non-locality.]{%
+  \includegraphics[scale=0.425]{images/Crr.pdf}%
+
+}
+\caption{\label{idea}[color online] Extremal form of monogamy of non-locality vs. extremal form of complimentarity of genuine non-locality in a tripartite scenario.}
+
+\end{figure*}
+
+
+
+While these two features of no-signaling non-theories are distinct, they are subtly related. In particular, the monogamy relation, (\ref{mono}), tightens with increasing presence of genuine multipartite non-locality. This is captured in the following modified monogamy relation,
+\begin{multline}
+\label{monogamy}
+  \max_{\mathcal{NS}}\{p_{A_1A_2}({S_{2}})+p_{A_1A_3}({S_{2}})\}\\  
+ = \begin{cases}
+       4-3p(S_{3}) ,~~~  \text{if}\ p(S_{3}) \geq \frac{5}{6}, \\
+       \frac{3}{2}, ~\;\;\;\;\;\;\;\;\;~~~~~~ \text{if}\ \frac{1}{2}\leq  p(S_{3}^i) \leq \frac{5}{6}. 
+    \end{cases}{}
+\end{multline} 
+Notice that the complementarity relations of the type (\ref{nvn31}) \textit{do not} imply the monogamy relation (\ref{monogamy}) on their own; i.e., one \textit{does not} arrive at the above result just by adding such complementarity relations for different pairs of parties, i.e., $\max_{\mathcal{NS}}\{p_{A_1A_2}(S_2)\}+\max_{\mathcal{NS}}\{p_{A_1A_3}(S_2)\} \not \equiv \max_{\mathcal{NS}}\{p_{A_1A_2}(S_2)+p_{A_1A_3}(S_2)\}$. Interestingly, the maximum value of the sum $\max_{\mathcal{NS}}\{p_{A_1A_2}(S_2)+p_{A_1A_3}(S_2)\}$ remains constant at $\frac{3}{2}$ for $\frac{1}{2} \leq p(S_3)\leq \frac{5}{6}$ and decreases for $p(S_3)>\frac{5}{6}$ [see FIG. \ref{monovssn} blue curve]. We use SDP once again to approximate the quantum case. Here the maximum value of the sum $\max_{Q}\{p_{A_1A_2}(S_2)+p_{A_1A_3}(S_2)\}$ remains constant at $\frac{3}{2}$ for $\frac{1}{2} \leq p(S_3)\leq \frac{3}{4}$ and decreases for $p(S_3)>\frac{3}{4}$ [see FIG. \ref{monovssn} orange curve].	
+ The above result can easily be proved using exactly the same proof structure used for \textbf{Theorem \ref{thm_2}.}. 
+\begin{figure} 
+\includegraphics[scale=0.6]{images/Mono_vs_Sn.pdf}
+\caption{[color online] Plot of maximum achievable value of the sum of winning probabilities of a $S_2$ game played between $A_1,A_2$ and $A_1,A_3$, $\max \{p_{A_1A_2}(S_2)+p_{A_1A_3}(S_2)\}$,  against the observed winning probability in a $S_3$ game, $p(S_3)$. For maximization over no-signaling probability distributions, the solid blue line, and for quantum probabilities, the dashed orange curve.
+\label{monovssn}
+}
+\end{figure}\\
+However, the above relation \textit{does not} capture the delicate details involved in this scenario.
+Observe that in the above relation the maximal value of the sum $\max_{\mathcal{NS}}\{p_{A_1A_2}(S_2)+p_{A_1A_3}(S_2)\}$ decreases only after $p(S_3) > \frac{5}{6}$. On the other hand, the maximal possible values of the individual terms $\max_{\mathcal{NS}}\{p_{A_1,A_2}(S_2)\}$ and $\max_{\mathcal{NS}}\{p_{A_1,A_3}(S_2)\}$ decrease all the way from $p(S_3)\geq \frac{3}{4}$. In order to help visualize this, we plot $\max_{\mathcal{NS}}\{p_{A_1,A_2}(S_2)\}$ against $p_{A_1,A_3}(S_2)$ given different observed values of $p(S_3)$ [see FIG. \ref{love}]. For $p(S_3) \in [\frac{3}{4},\frac{5}{6}]$ the maximum sum is still $\frac{3}{2}$, however the individual maximums continually decrease, giving the plots a plateau like shape. 
+Again a similar trend is observed under the quantum constraints. We plot $\max_{Q}\{p_{A_1,A_2}(S_2)\}$ against $p_{A_1,A_3}(S_2)$ given different observed values of $p(S_3)$ [see FIG. \ref{love1}]. For $p(S_3) \in [0.68,\frac{3}{4}]$ the maximum sum is still $\frac{3}{2}$, however the individual maximums continually decrease, giving the plots a non-trivial shape.  
+\begin{figure*}
+\subfloat[\label{love} No-signaling]{%
+  \includegraphics[scale=0.6]{images/chsh_chsh_sn.pdf}%
+} \hfill
+\subfloat[\label{love1} Quantum]{%
+  \includegraphics[scale=0.6]{images/chsh_chsh_snQ.pdf}%
+}
+\caption{[color online] The curves of maximum achievable success probability in a $S_2$ game, played between $A_1,A_2$, $\max\{p_{A_1,A_2}(S_2)\}$, against the winning probability in a $S_2$ game, played between $A_1,A_3$, $p_{A_1,A_3}(S_2)$, given different observed value of the winning probability in a $S_3$ game, $p_{A_1,A_2,A_3}(S_3)$. The first curve from the top corresponds to the top most legend entry, the second curve to the second legend entry and so on.}
+\label{ahCommon}
+\end{figure*}
+
+
+
+
+
+\section{Conclusions and future directions}
+This work is an attempt to capture a characteristic feature of Nature, namely, \textit{when a system of multiple particles (say spin-$\frac{1}{2}$ particles) manifests genuine non-local correlation, then there cannot be arbitrarily high non-local correlation among any subset of particles}. We refer to this feature, as the \textit{complementarity of genuine multipartite non-locality}. We bring forth this feature without invoking the particulars of the quantum theory. Instead, we show that any no-signaling non-local theory will manifest this property. We use the Svetlichny's criterion for genuine multipartite non-locality and Svetlichny's family of non-local games, to showcase this feature. Svetlichny's non-local games have a recursive structure; i.e., a Svetlichny's non-local game for $n$ parties yields four distinct Svetlichny's non-local games for $k$ parties upon conditioning over inputs and outputs of the $n-k$ parties [see FIG. \ref{prove_me}]. We exploit this feature in-order to prove our main results (\ref{snsn}),(\ref{nvn}) for the no-signaling constraints. Our numerical analysis reveals the fact that these relations tighten under the much stricter quantum constraints [see FIG. \ref{snvssn} and \ref{skvssn}]. \\
+However, this feature of no-signaling non-local theories is not restricted to any particular framework. Also, Svetlichny's criterion provides only a sufficient condition for genuine multipartite non-locality. Therefore, for completeness, we provide numerical evidence showcasing this property, by plotting $\max_{\mathcal{NS}}(p(S_2)),\max_{Q}(p(S_2))$ (where $S_2$ is the non-local game equivalent to well known CHSH-expression) against several tripartite measures of non-locality [see \textbf{Appendix A.}]. \\
+We compare the notions of \textit{complementarity of genuine multipartite non-locality} and \textit{monogamy of non-locality}. While monogamy of non-locality entails a restriction on possible non-local correlations of an external party with any particular party (or a bunch of parties) within a (genuinely non-locally) 
+correlated system, the notion of \textit{complementarity of genuine multipartite non-locality} on the other hand deals with distribution of genuine non-local correlation within a system having some overall genuine correlation [see FIG. \ref{idea}].
+While these are distinct features of no-signaling non-local theories, they are subtly related. As a bi-product of this comparison, we find that the monogamy relations tighten with increase in genuine multipartite non-locality for both the no-signaling and the quantum constraints (\ref{monogamy})[see FIG. \ref{monovssn} and \ref{ahCommon}]. \\
+Apart from the straightforward relevance to the field of foundations, the complementarity relations presented here have potential applications to the fields of communication complexity, cryptography and game theory. It was shown that for a very large class of multipartite Bell-type inequalities, correlations which violate them lead to an advantage in corresponding communication complexity protocols \cite{brukner2004bell}. And in-turn this advantage in communication complexity protocols is directly related to security of cryptographic protocols \cite{becker1998communication,micciancio2004optimal,guedes2011quantum}. In particular, in protocols involving multiple parties, where the success of the protocol is directly related to amount of violation of genuine multipartite non-locality testing Bell-type inequalities, the complementarity relations provide security against a conspiring (cheating) subgroup of parties. \\
+In this work, we deal with how the amount genuine multipartite non-locality of one (arbitrary) subset is restricted due to presence of genuine multipartite non-locality in the system as a whole. It would be interesting to further study the distribution of genuine multipartite non-locality among multiple (disjoint or overlapping) subsets given the presence of genuine multipartite non-locality in the system as a whole.
+\section{Acknowledgements}
+\noindent AC would like to thank Dr. G Kar, Dr M Banik of PAMU, ISI, Kolkata, India for intuitive advice and D Saha, Dr. M Pawłowski and Dr. K Horodecki of KCIK, Gdansk, Poland for detailed discussions. This project was partly supported by grant, Harmonia 4 (Grant number: UMO-2013/08/M/ST2/00626), ERC AdG QOLAPS.
+
+\bibliography{bibliography}
+
+\clearpage
+\input{AppendToMe.tex}
+\end{document}
+
